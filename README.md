@@ -12,15 +12,13 @@ To build:
     * `curl`
 * If you are using Amazon Linux 2, this is the sequence of commands to install these prerequisites:
 ```
-sudo yum install git
-sudo yum install docker
+sudo amazon-linux-extras enable postgresql14
+sudo yum clean metadata
+sudo yum install -y git docker postgresql
 sudo systemctl start docker
 sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /bin/docker-compose
-sudo amazon-linux-extras enable postgresql14
-sudo yum clean metadata
-sudo yum install postgresql
 ```
 * Clone this repository and `cd` into it.
 ```
@@ -30,7 +28,7 @@ cd eikon_backend_takehome/
 * Run `sudo ./build.sh` (`sudo` may or may not be required depending on your docker permissions)
 
 ## Running
-To start the service, run `sudo ./run_etl_service.sh` on a machine with Docker (`sudo` may or may not be required depending on your docker permissions).  This will start both the ETL service, and a postgreSQL database to support it.
+To start the service, run `sudo ./run_etl_service.sh` (`sudo` may or may not be required depending on your docker permissions).  This will start both the ETL service, and a postgreSQL database to support it.
 
 If you wish to run just the ETL service, and connect it to your own postgres instance, please either edit `compose.yaml` or consult `./run_etl_service.sh` for an example command that
 configures the ETL service appropriately.
