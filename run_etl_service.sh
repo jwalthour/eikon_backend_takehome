@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start both the ETL+API service and the database service to support it.
-docker compose up
+docker-compose up
 # Note: If you just want to run the ETL+API service, you can 
 # 1. Edit compose.yaml to remove the database server, or
 # 2. run the following command instead:

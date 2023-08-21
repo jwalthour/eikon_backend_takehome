@@ -11,6 +11,8 @@ DB_NAME = "postgres"
 DB_SCHEMA = "public"
 DB_TABLE_NAME = "user_experiment_stats"
 
+# Note: a truly thorough implementation would include unit tests.  This submission does not.
+
 
 class EtlProcess(Process):
     def __init__(
